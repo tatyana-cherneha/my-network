@@ -9,9 +9,9 @@ function MyPosts() {
                 <button>Add post</button>
             </div>
 
-            <Posts />
-            <Posts />
-            <Posts />
+            <Posts message='hi' like='2' />
+            <Posts message='my first post' like='6' />
+            <Posts message='okay' like='3' />
         </div>
     )
 }
