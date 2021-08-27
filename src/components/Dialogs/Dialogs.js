@@ -5,11 +5,11 @@ import DialogUser from "./DialogUser/DialogUser";
 
 function Dialogs (props) {
 
-    let dialogsElement = props.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
+    let dialogsElement = props.state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
 
-    let messageInputEl = props.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
+    let messageInputEl = props.state.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
 
-    let messageOutputEl = props.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
+    let messageOutputEl = props.state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
 
     return (
         <div className='dialogs'>
