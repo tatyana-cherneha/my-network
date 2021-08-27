@@ -1,7 +1,7 @@
 .dialogs {
   display: flex;
   padding: 20px;
-  &__info{
+  &__user{
     width: 25%;
     border-right: 1px solid #ccc;
     padding: 10px;
@@ -57,6 +57,7 @@
       padding: 8px 15px;
       border: 1px solid #bbb;
       border-radius: 5px;
+      outline: none;
     }
     button {
       display: block;
@@ -69,6 +70,7 @@
       border-radius: 5px;
       margin: 10px 0 0 auto;
       cursor: pointer;
+      outline: none;
     }
   }
 }

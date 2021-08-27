@@ -1,24 +1,49 @@
 import './Dialogs.scss'
 import {NavLink} from "react-router-dom";
 
+const DialogUser = (props) => {
+    let path = '/messages/' + props.id;
+
+    return (
+        <NavLink to={path}>{props.name}</NavLink>
+    )
+}
+
+const MessagesInput = (props) => {
+    return (
+        <p className='messages-item'>{props.messageI}</p>
+    )
+}
+
+const MessagesOutput = (props) => {
+    return (
+         <p className='messages-item'>{props.messageO}</p>
+    )
+}
+
 function Dialogs () {
     return (
         <div className='dialogs'>
-            <div className="dialogs__info">
-                <NavLink to='/messages/1'>Kolya</NavLink>
-                <NavLink to='/messages/2'>Lola</NavLink>
-                <NavLink to='/messages/3'>Nikita</NavLink>
-                <NavLink to='/messages/4'>Sasha</NavLink>
-                <NavLink to='/messages/5'>Julia</NavLink>
+            <div className="dialogs__user">
+                <DialogUser name='Kolya' id='1' />
+                <DialogUser name='Lola' id='2' />
+                <DialogUser name='Nikita' id='3' />
+                <DialogUser name='Sasha' id='4' />
+                <DialogUser name='Julia' id='5' />
             </div>
+
 
             <div className='dialogs__txt'>
                 <div className="dialogs__txt-input">
-                    <p className='messages-item'>input</p>
+                    <MessagesInput  messageI='input'/>
+                    <MessagesInput  messageI='input 2'/>
+                    <MessagesInput  messageI='input 3'/>
                 </div>
 
                 <div className="dialogs__txt-output">
-                    <p className='messages-item'>output</p>
+                    <MessagesOutput messageO='output' />
+                    <MessagesOutput messageO='output 2' />
+                    <MessagesOutput messageO='output 3' />
                 </div>
 
                 <div className='dialogs__add'>
