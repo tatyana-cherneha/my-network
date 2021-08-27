@@ -1,12 +1,15 @@
 import './Dialogs.scss'
+import {NavLink} from "react-router-dom";
 
 function Dialogs () {
     return (
         <div className='dialogs'>
             <div className="dialogs__info">
-                <a>Kolya</a>
-                <a>Lola</a>
-                <a>hhhh</a>
+                <NavLink to='/messages/1'>Kolya</NavLink>
+                <NavLink to='/messages/2'>Lola</NavLink>
+                <NavLink to='/messages/3'>Nikita</NavLink>
+                <NavLink to='/messages/4'>Sasha</NavLink>
+                <NavLink to='/messages/5'>Julia</NavLink>
             </div>
 
             <div className='dialogs__txt'>
