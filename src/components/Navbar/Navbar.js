@@ -1,25 +1,18 @@
 import './Navbar.scss'
-import {NavLink} from "react-router-dom";
+import NavItem from "./NavItem/NavItem"
+import ListFriends from '../ListFriends/ListFriends'
 
-function Navbar() {
+function Navbar(props) {
+
+    // let menuElements = props.navBar.map(m => <NavItem id={m.id} menuList={m.menuList} />)
+    // console.log(menuElements);
     return (
-        <nav className='nav'>
-            <ul className='nav__list'>
-                <li>
-                    <NavLink to="/profile">Profile</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/messages">Messages</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/news">News</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/music">Music</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/setting">Setting</NavLink>
-                </li>
+        <nav className="nav">
+            <ul className="nav__list">
+                {/*{ menuElements }*/}
+                <NavItem menuList="profile"/>
+                <NavItem menuList="messages"/>
+                <ListFriends />
             </ul>
         </nav>
     )
