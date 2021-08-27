@@ -1,0 +1,73 @@
+.dialogs {
+  display: flex;
+  padding: 20px;
+  &__info{
+    width: 25%;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    a {
+      display: block;
+      color: black;
+      font-size: 14px;
+      text-transform: inherit;
+      padding: 7px 0;
+    }
+    .active {
+      color: #00008B;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  &__txt {
+    width: 73%;
+    padding: 0 20px;
+  }
+
+  .dialogs__txt-input{
+    .messages-item {
+      background-color: #ffffff;
+      width: 400px;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .dialogs__txt-output {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .messages-item {
+      background-color: #ccc;
+      width: 400px;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: right;
+    }
+  }
+
+  .dialogs__add {
+    textarea {
+      display: block;
+      resize: none;
+      width: 95%;
+      padding: 8px 15px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+    }
+    button {
+      display: block;
+      border: none;
+      background-color: darkcyan;
+      color: #ffffff;
+      text-transform: uppercase;
+      padding: 10px 30px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin: 10px 0 0 auto;
+      cursor: pointer;
+    }
+  }
+}
