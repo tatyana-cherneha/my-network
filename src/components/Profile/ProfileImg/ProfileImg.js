@@ -1,4 +1,5 @@
-import ImgContent from "../../../img/nice__view.jpeg";
+import './ProfileImg.scss'
+import ImgContent from "../../../img/nice__view.jpeg"
 
 function ProfileImg() {
     return (

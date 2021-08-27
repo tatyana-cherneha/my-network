@@ -1,54 +1,15 @@
 import './Dialogs.scss'
-import {NavLink} from "react-router-dom";
+import MessagesOutput from "./MessagesOutput/MessagesOutput"
+import MessagesInput from "./MessagesInput/MessagesInput"
+import DialogUser from "./DialogUser/DialogUser";
 
-function DialogUser(props) {
-    let path = '/messages/' + props.id;
+function Dialogs (props) {
 
-    return (
-        <NavLink to={path}>{props.name}</NavLink>
-    )
-}
+    let dialogsElement = props.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
 
-function MessagesInput(props) {
-    return (
-        <p className='messages-item'>{props.messageI}</p>
-    )
-}
+    let messageInputEl = props.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
 
-function MessagesOutput(props) {
-    return (
-         <p className='messages-item'>{props.messageO}</p>
-    )
-}
-
-function Dialogs () {
-
-    let dialogsData = [
-        {id: 1, name: 'Kolya'},
-        {id: 2, name: 'Lola'},
-        {id: 3, name: 'Nikita'},
-        {id: 4, name: 'Sasha'},
-        {id: 5, name: 'Julia'}
-    ]
-
-    let dialogsElement = dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
-
-    let messageInput = [
-        {id: 1, msgInput: 'input'},
-        {id: 2, msgInput: 'input 2'},
-        {id: 3, msgInput: 'input 3'}
-    ]
-
-    let messageInputEl = messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
-
-
-    let messageOutput = [
-        {id: 1, msgOutput: 'input'},
-        {id: 2, msgOutput: 'input 2'},
-        {id: 3, msgOutput: 'input 3'}
-    ]
-
-    let messageOutputEl = messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
+    let messageOutputEl = props.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
 
     return (
         <div className='dialogs'>
