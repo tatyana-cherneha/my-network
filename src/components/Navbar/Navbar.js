@@ -1,14 +1,25 @@
 import './Navbar.scss'
+import {NavLink} from "react-router-dom";
 
 function Navbar() {
     return (
         <nav className='nav'>
             <ul className='nav__list'>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/messages">Messages</a></li>
-                <li><a href="/news">News</a></li>
-                <li><a href="/music">Music</a></li>
-                <li><a href="/setting">Setting</a></li>
+                <li>
+                    <NavLink to="/profile">Profile</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/messages">Messages</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/news">News</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/music">Music</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/setting">Setting</NavLink>
+                </li>
             </ul>
         </nav>
     )
