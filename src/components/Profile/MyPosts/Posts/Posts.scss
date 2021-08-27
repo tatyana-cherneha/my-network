@@ -1,0 +1,29 @@
+.profile {
+  &__post-item {
+    padding: 0 20px 30px;
+    .post_like {
+      padding-left: 6px;
+      margin: 0;
+      svg {
+        width: 15px;
+        padding-right: 5px;
+        fill: red;
+      }
+    }
+
+    .post-item_info{
+      display: flex;
+      align-items: center;
+      .post_avatar {
+        width: 30px;
+        height: 30px;
+        background-color: #F4A460;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+    }
+
+
+  }
+
+}
