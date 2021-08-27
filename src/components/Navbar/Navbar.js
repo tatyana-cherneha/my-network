@@ -3,7 +3,7 @@ import './Navbar.scss'
 function Navbar() {
     return (
         <nav className='nav'>
-            <ul>
+            <ul className='nav__list'>
                 <li><a href="#p">Profile</a></li>
                 <li><a href="#d">Messages</a></li>
                 <li><a href="#n">News</a></li>

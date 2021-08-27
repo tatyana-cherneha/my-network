@@ -1,0 +1,13 @@
+.header {
+  grid-area: header;
+  background-color: cornflowerblue;
+  &__logo {
+    width: 60px;
+    height: 60px;
+    &-link {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

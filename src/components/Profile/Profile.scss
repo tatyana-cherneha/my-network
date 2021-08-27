@@ -1,0 +1,33 @@
+.profile {
+  padding-bottom: 50px;
+  &__img {
+
+  }
+
+
+  &__data {
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
+    padding: 0 20px;
+
+    &-avatar {
+      width: 100px;
+      height: 100px;
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    &-descr {
+      margin-left: 20px;
+    }
+  }
+
+  &__post {
+    padding: 0 20px;
+    p {
+      padding: 5px 0;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.nav {
+  grid-area: nav;
+  background-color: cornflowerblue;
+  &__list {
+    padding: 20px 15px;
+    li {
+      padding: 7px 0;
+      a {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 600;
+        &.active {
+          color: black;
+        }
+      }
+    }
+  }
+}

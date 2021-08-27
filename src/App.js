@@ -5,10 +5,14 @@ import Profile from "./components/Profile/Profile"
 
 function App() {
   return (
-    <div className='app-wrapper'>
+    <div className='wrapper'>
         <Header />
         <Navbar />
-        <Profile />
+
+        <div className='content'>
+            <Profile />
+        </div>
+
     </div>
   );
 }
