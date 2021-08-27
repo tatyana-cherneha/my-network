@@ -21,7 +21,7 @@ function App() {
                 ava + description
             </div>
             <div className='post'>
-                <div>My post</div>
+                <div><p>My post</p></div>
                 <div>New post</div>
                 <div>post 1</div>
                 <div>post 2</div>
