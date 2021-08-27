@@ -4,11 +4,11 @@ function Navbar() {
     return (
         <nav className='nav'>
             <ul className='nav__list'>
-                <li><a href="#p">Profile</a></li>
-                <li><a href="#d">Messages</a></li>
-                <li><a href="#n">News</a></li>
-                <li><a href="#m">Music</a></li>
-                <li><a href="#s">Setting</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/messages">Messages</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/music">Music</a></li>
+                <li><a href="/setting">Setting</a></li>
             </ul>
         </nav>
     )
