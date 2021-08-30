@@ -12,6 +12,10 @@ function Navbar(props) {
                 {/*{ menuElements }*/}
                 <NavItem menuList="profile"/>
                 <NavItem menuList="messages"/>
+                <NavItem menuList="news"/>
+                <NavItem menuList="music"/>
+                <NavItem menuList="setting"/>
+                <NavItem menuList="friends"/>
                 <ListFriends />
             </ul>
         </nav>

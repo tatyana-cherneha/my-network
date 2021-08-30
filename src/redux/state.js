@@ -8,9 +8,9 @@ let state = {
             {id: 5, name: 'Julia'}
         ],
         messageInput: [
-            {id: 1, msgInput: 'input'},
-            {id: 2, msgInput: 'input 2'},
-            {id: 3, msgInput: 'input 3'}
+            {id: 1, msgInput: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'},
+            {id: 2, msgInput: 'It is a long established fact that a reader will be distracted by the readable content.'},
+            {id: 3, msgInput: 'The readable content of a page when looking at its layout'}
         ],
         messageOutput: [
             {id: 1, msgOutput: 'input'},

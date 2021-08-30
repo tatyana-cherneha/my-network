@@ -9,7 +9,8 @@ function ProfileInfo() {
             </div>
 
             <div className='profile__data-descr'>
-                <p>Name + info</p>
+                <h3>Name Surname</h3>
+                <p>Description</p>
             </div>
         </div>
     )
