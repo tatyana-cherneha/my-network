@@ -14,7 +14,7 @@ function Navbar(props) {
                 <NavItem menuList="messages"/>
                 <NavItem menuList="news"/>
                 <NavItem menuList="music"/>
-                <NavItem menuList="setting"/>
+                <NavItem menuList="settings"/>
                 <NavItem menuList="friends"/>
                 <ListFriends />
             </ul>

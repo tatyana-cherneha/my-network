@@ -1,3 +1,4 @@
+import React from 'react'
 import './Dialogs.scss'
 import MessagesOutput from "./MessagesOutput/MessagesOutput"
 import MessagesInput from "./MessagesInput/MessagesInput"
@@ -10,6 +11,13 @@ function Dialogs (props) {
     let messageInputEl = props.state.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
 
     let messageOutputEl = props.state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
+
+    let newMsgElement = React.createRef();
+
+    let addMsg = () => {
+        let textMsg = newMsgElement.current.value;
+        alert(textMsg);
+    }
 
     return (
         <div className='dialogs'>
@@ -28,8 +36,8 @@ function Dialogs (props) {
                 </div>
 
                 <div className='dialogs__add'>
-                    <textarea placeholder="Write messages there..."></textarea>
-                    <button>Send</button>
+                    <textarea placeholder="Write messages there..." ref={newMsgElement}></textarea>
+                    <button onClick={addMsg}>Send</button>
                 </div>
             </div>
 
