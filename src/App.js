@@ -13,14 +13,14 @@ function App(props) {
       <BrowserRouter>
           <div className='wrapper'>
               <Header />
-              <Navbar state={props.state.navBar} />
+              <Navbar state={props.store.navBar} />
 
               <div className='content'>
-                  <Route path='/profile' render={() => <Profile state={props.state.profilePage}
+                  <Route path='/profile' render={() => <Profile state={props.store.profilePage}
                                                                 addPost={props.addPost}
                                                                 updateNewPostText={props.updateNewPostText}
                   /> } />
-                  <Route path='/messages' render={ () => <Dialogs state={props.state.dialogsPage}
+                  <Route path='/messages' render={ () => <Dialogs state={props.store.dialogsPage}
                                                                   addMsg={props.addMsg}
                   /> } />
                   <Route path='/news' component={News} />
