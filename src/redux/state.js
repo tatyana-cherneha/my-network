@@ -1,9 +1,5 @@
-let rerenderEnterTree = () => {
-    console.log('state is changed!');
-};
-
 let store = {
-   state = {
+   _state: {
 
        dialogsPage: {
             dialogsData: [
@@ -31,7 +27,7 @@ let store = {
                 {id: 2, post: 'my first post', likeCount: 4},
                 {id: 3, post: 'okay', likeCount: 1}
             ],
-                newPostText: 'it-kama'
+            newPostText: 'it-kama',
         },
 
        navBar: [
@@ -41,38 +37,47 @@ let store = {
             {id: 4, menuList: 'Music'},
             {id: 5, menuList: 'Setting'},
             {id: 6, menuList: 'Friends'},
-        ]
+       ],
    },
 
-    addMsg = (textMessage) => {
+    getState() {
+        return this._state;
+    },
+
+    _callSubscriber() {
+        console.log('state is changed!');
+    },
+
+    addMsg(textMessage) {
         let newMsg = {
             id: 4,
             msgOutput: textMessage
         }
-        state.dialogsPage.messageOutput.push(newMsg);
-        rerenderEnterTree(state);
+        this._state.dialogsPage.messageOutput.push(newMsg);
+        this._callSubscriber(this._state);
     },
 
-    addPost = () => {
+    addPost() {
         let newPost = {
             id: 5,
-            post: state.profilePage.newPostText,
+            post: this._state.profilePage.newPostText,
             likeCount: 0
         }
-        state.profilePage.postData.push(newPost);
-        state.profilePage.newPostText = '';
-        rerenderEnterTree(state);
+        this._state.profilePage.postData.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
     },
 
-    updateNewPostText = (newText) => {
-        state.profilePage.newPostText = newText;
-        rerenderEnterTree(state);
-    }
+    updateNewPostText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this._callSubscriber(this._state);
+    },
 
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    }
 };
 
-export let subscribe = (observer) => {
-    rerenderEnterTree = observer;
-}
 
-export default store
+export default store;
+window.store = store;
