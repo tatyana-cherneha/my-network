@@ -17,11 +17,10 @@ function App(props) {
 
               <div className='content'>
                   <Route path='/profile' render={() => <Profile state={props.state.profilePage}
-                                                                addPost={props.addPost}
-                                                                updateNewPostText={props.updateNewPostText}
+                                                                dispatch={props.dispatch}
                   /> } />
                   <Route path='/messages' render={ () => <Dialogs state={props.state.dialogsPage}
-                                                                  addMsg={props.addMsg}
+                                                                  // addMsg={props.addMsg}
                   /> } />
                   <Route path='/news' component={News} />
                   <Route path='/music' component={Music} />

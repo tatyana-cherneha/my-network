@@ -1,6 +1,5 @@
 let store = {
    _state: {
-
        dialogsPage: {
             dialogsData: [
                 {id: 1, name: 'Kolya'},
@@ -40,42 +39,41 @@ let store = {
        ],
    },
 
-    getState() {
-        return this._state;
-    },
-
     _callSubscriber() {
         console.log('state is changed!');
     },
 
-    addMsg(textMessage) {
-        let newMsg = {
-            id: 4,
-            msgOutput: textMessage
-        }
-        this._state.dialogsPage.messageOutput.push(newMsg);
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
     },
-
-    addPost() {
-        let newPost = {
-            id: 5,
-            post: this._state.profilePage.newPostText,
-            likeCount: 0
-        }
-        this._state.profilePage.postData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-
     subscribe(observer) {
         this._callSubscriber = observer;
-    }
+    },
+
+    // addMsg(textMessage) {
+    //     let newMsg = {
+    //         id: 4,
+    //         msgOutput: textMessage
+    //     }
+    //     this._state.dialogsPage.messageOutput.push(newMsg);
+    //     this._callSubscriber(this._state);
+    // },
+
+    dispatch(action) {
+       if (action.type === 'ADD_POST') {
+           let newPost = {
+               id: 5,
+               post: this._state.profilePage.newPostText,
+               likeCount: 0
+           }
+           this._state.profilePage.postData.push(newPost);
+           this._state.profilePage.newPostText = '';
+           this._callSubscriber(this._state);
+       } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
+           this._state.profilePage.newPostText = action.newText;
+           this._callSubscriber(this._state);
+       }
+    },
 };
 
 
