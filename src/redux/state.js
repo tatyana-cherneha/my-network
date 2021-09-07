@@ -26,7 +26,8 @@ let state = {
             {id: 1, post: 'hi', likeCount: 6},
             {id: 2, post: 'my first post', likeCount: 4},
             {id: 3, post: 'okay', likeCount: 1}
-        ]
+        ],
+        newPostText: 'it-kama'
     },
 
     navBar: [
@@ -48,13 +49,19 @@ export let addMsg = (textMessage) => {
     rerenderEnterTree(state);
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
-        post: postMessage,
+        post: state.profilePage.newPostText,
         likeCount: 0
     }
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEnterTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
     rerenderEnterTree(state);
 }
 

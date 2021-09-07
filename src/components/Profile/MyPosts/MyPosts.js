@@ -11,14 +11,18 @@ function MyPosts(props) {
     let addPost = () => {
         let text = newPostElement.current.value;
         props.addPost(text);
+        props.updateNewPostText('');
+    }
 
-        newPostElement.current.value = '';
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text);
     }
 
     return (
         <div className='profile__post'>
             <div className='profile__post-add'>
-                <textarea placeholder='Write post...' ref={newPostElement}></textarea>
+                <textarea placeholder='Write post...' onChange={ onPostChange } ref={ newPostElement }></textarea>
                 <button onClick={ addPost }>Add post</button>
             </div>
 
