@@ -1,3 +1,5 @@
+import {rerenderEnterTree} from "../render";
+
 let state = {
     dialogsPage: {
         dialogsData: [
@@ -37,6 +39,15 @@ let state = {
     ]
 }
 
+export let addMsg = (textMessage) => {
+    let newMsg = {
+        id: 4,
+        msgOutput: textMessage
+    }
+    state.dialogsPage.messageOutput.push(newMsg);
+    rerenderEnterTree(state);
+}
+
 export let addPost = (postMessage) => {
     let newPost = {
         id: 5,
@@ -44,6 +55,7 @@ export let addPost = (postMessage) => {
         likeCount: 0
     }
     state.profilePage.postData.push(newPost);
+    rerenderEnterTree(state);
 }
 
 export default state

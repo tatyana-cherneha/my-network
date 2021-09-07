@@ -16,7 +16,9 @@ function Dialogs (props) {
 
     let addMsg = () => {
         let textMsg = newMsgElement.current.value;
-        alert(textMsg);
+        props.addMsg(textMsg);
+
+        newMsgElement.current.value = '';
     }
 
     return (
@@ -37,7 +39,7 @@ function Dialogs (props) {
 
                 <div className='dialogs__add'>
                     <textarea placeholder="Write messages there..." ref={newMsgElement}></textarea>
-                    <button onClick={addMsg}>Send</button>
+                    <button onClick={ addMsg }>Send</button>
                 </div>
             </div>
 
