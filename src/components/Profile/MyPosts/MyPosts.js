@@ -6,7 +6,9 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 function MyPosts(props) {
 
-    let postElement = props.postData.map( p => <Posts message={p.post} like={p.likeCount} />)
+    let postElement = props.state.postData.map( p => <Posts message={p.post} like={p.likeCount} />)
+
+    let newPostText = props.state.newPostText;
 
     let newPostElement = React.createRef();
 
@@ -23,7 +25,7 @@ function MyPosts(props) {
     return (
         <div className='profile__post'>
             <div className='profile__post-add'>
-                <textarea placeholder='Write post...' onChange={ onPostChange } ref={ newPostElement } value={ props.newPostText }></textarea>
+                <textarea placeholder='Write post...' onChange={ onPostChange } ref={ newPostElement } value={ newPostText }></textarea>
                 <button onClick={ addPost }>Add post</button>
             </div>
 

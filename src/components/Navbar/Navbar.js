@@ -4,7 +4,7 @@ import ListFriends from '../ListFriends/ListFriends'
 
 function Navbar(props) {
 
-    // let menuElements = props.navBar.map(m => <NavItem id={m.id} menuList={m.menuList} />)
+   // let menuElements = props.state.navBar.map(m => <NavItem id={m.id} menuList={m.menuList} />)
     // console.log(menuElements);
     return (
         <nav className="nav">
