@@ -6,10 +6,10 @@ import DialogUser from "./DialogUser/DialogUser";
 import {
     addMsgActionCreator,
     updateNewMsgTextActionCreator,
-} from "../../redux/state";
+} from "../../redux/dialogsReducer";
 
 function Dialogs (props) {
-    let state = props.store.getState().dialogsPage;
+    //let state = props.store.getState().dialogsPage;
 
     let dialogsElement = props.state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
 
