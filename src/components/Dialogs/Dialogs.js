@@ -9,27 +9,15 @@ import {
 } from "../../redux/dialogsReducer";
 
 function Dialogs (props) {
-    //let state = props.store.getState().dialogsPage;
+    let state = props.store.getState().dialogsPage;
 
-    let dialogsElement = props.state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
+    let dialogsElement = state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
 
-    let messageInputEl = props.state.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
+    let messageInputEl = state.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
 
-    let messageOutputEl = props.state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
+    let messageOutputEl = state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
 
-   // let newMsgElement = React.createRef();
-
-    let newMessageText = props.state.newMsgText;
-
-    // let addMsg = () => {
-    //     props.dispatch(addMsgActionCreator());
-    // }
-    //
-    // let onMsgChange = () => {
-    //     let text = newMsgElement.current.value;
-    //     let action = updateNewMsgTextActionCreator(text);
-    //     props.dispatch(action);
-    // }
+    let newMessageText = state.newMsgText;
 
     let onSendMsgClick = () => {
         props.store.dispatch(addMsgActionCreator())
