@@ -6,15 +6,12 @@ import DialogUser from "./DialogUser/DialogUser";
 
 
 function Dialogs (props) {
-    let state = props.dialogsPage;
+    // debugger
 
-    let dialogsElement = state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
-
-    let messageInputEl = state.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
-
-    let messageOutputEl = state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
-
-    let newMessageText = state.newMsgText;
+    let dialogsElement = props.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
+    let messageInputEl = props.messageInput.map( msgI => <MessagesInput id={msgI.id} messageI={msgI.msgInput} />)
+    let messageOutputEl = props.messageOutput.map( msgO => <MessagesOutput id={msgO.id} messageO={msgO.msgOutput} />)
+    let newMessageText = props.newMsgText;
 
     let onSendMsgClick = () => {
         props.sendMsgClick();
