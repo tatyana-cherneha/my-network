@@ -3,13 +3,10 @@ import './Dialogs.scss'
 import MessagesOutput from "./MessagesOutput/MessagesOutput"
 import MessagesInput from "./MessagesInput/MessagesInput"
 import DialogUser from "./DialogUser/DialogUser";
-import {
-    addMsgActionCreator,
-    updateNewMsgTextActionCreator,
-} from "../../redux/dialogsReducer";
+
 
 function Dialogs (props) {
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let dialogsElement = state.dialogsData.map( d => <DialogUser id={d.id} name={d.name} />)
 
@@ -20,12 +17,12 @@ function Dialogs (props) {
     let newMessageText = state.newMsgText;
 
     let onSendMsgClick = () => {
-        props.store.dispatch(addMsgActionCreator())
+        props.sendMsgClick();
     }
 
     let onNewMsgChange = (e) => {
         let newMsg = e.target.value;
-        props.store.dispatch(updateNewMsgTextActionCreator(newMsg))
+        props.updateNewMsgText(newMsg)
     }
 
     return (

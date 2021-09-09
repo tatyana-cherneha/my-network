@@ -3,9 +3,9 @@ import NavItem from "./NavItem/NavItem"
 import ListFriends from '../ListFriends/ListFriends'
 
 function Navbar(props) {
+    // debugger
+    // let menuElements = props.navBar.map(m => <NavItem id={m.id} menuList={m.menuList} />)
 
-   // let menuElements = props.state.navBar.map(m => <NavItem id={m.id} menuList={m.menuList} />)
-    // console.log(menuElements);
     return (
         <nav className="nav">
             <ul className="nav__list">
