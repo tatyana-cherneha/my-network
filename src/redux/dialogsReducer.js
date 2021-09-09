@@ -3,7 +3,7 @@ const SEND_MSG = 'SEND_MSG';
 
 
 let initialState = {
-    dialogsData: [
+    dialogsUsers: [
         {id: 1, name: 'Kolya'},
         {id: 2, name: 'Lola'},
         {id: 3, name: 'Nikita'},
@@ -24,24 +24,18 @@ let initialState = {
 }
 
 const dialogsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SEND_MSG: {
-            let newMsg = {
-                id: 4,
-                msgOutput: state.newMsgText
+     switch (action.type) {
+        case SEND_MSG:
+            return {
+                ...state,
+                newMsgText: '',
+                messageOutput: [...state.messageOutput, {id: 4, msgOutput: state.newMsgText}]
             }
-            let copyState = {...state}
-            copyState.messageOutput = [...state.messageOutput];
-            copyState.messageOutput.push(newMsg);
-            copyState.newMsgText = '';
-            return copyState;
-        }
-
-        case UPDATE_NEW_MSG_TEXT: {
-            let copyState = {...state}
-            copyState.newMsgText = action.msgText;
-            return copyState;
-        }
+        case UPDATE_NEW_MSG_TEXT:
+            return {
+                ...state,
+                newMsgText: action.msgText
+            }
         default:
             break;
     }
@@ -50,7 +44,7 @@ const dialogsReducer = (state = initialState, action) => {
 }
 
 
-export const addMsgActionCreator = () => ({type: SEND_MSG});
+export const sendMsgActionCreator = () => ({type: SEND_MSG});
 
 export const updateNewMsgTextActionCreator = (textMsg) => ({
     type: UPDATE_NEW_MSG_TEXT,
