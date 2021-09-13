@@ -1,5 +1,8 @@
 .user {
   padding: 20px;
+  &__pagination {
+    margin-bottom: 20px;
+  }
   &__info {
     display: flex;
     align-items: center;
