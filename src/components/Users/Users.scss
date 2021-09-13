@@ -1,0 +1,44 @@
+.user {
+  padding: 20px;
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    &-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #0F406A;
+      margin-right: 20px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+    &-btn{
+      display: block;
+      border: none;
+      background: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      &.follow {
+        color: indianred;
+      }
+      &.unfollow {
+        color: green;
+      }
+    }
+    &-txt {
+      //display: flex;
+    }
+    &-location {
+      display: flex;
+    }
+  }
+}
