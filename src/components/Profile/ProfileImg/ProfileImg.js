@@ -1,5 +1,5 @@
 import './ProfileImg.scss'
-import ImgContent from "../../../img/nice__view.jpeg"
+import ImgContent from "../../../assets/img/nice__view.jpeg"
 
 function ProfileImg() {
     return (

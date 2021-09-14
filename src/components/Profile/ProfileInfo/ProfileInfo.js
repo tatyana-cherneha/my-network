@@ -1,5 +1,5 @@
 import './ProfileInfo.scss'
-import Avatar from "../../../img/avatar.jpeg";
+import Avatar from "../../../assets/img/avatar.jpeg";
 
 function ProfileInfo() {
     return (
