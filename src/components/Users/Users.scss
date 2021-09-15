@@ -2,6 +2,13 @@
   padding: 20px;
   &__pagination {
     margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+    span {
+      padding-right: 8px;
+    }
   }
   &__info {
     display: flex;
@@ -44,4 +51,8 @@
       display: flex;
     }
   }
+}
+.selectedPage {
+  font-weight: bold;
+
 }
