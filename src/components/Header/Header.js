@@ -1,6 +1,7 @@
 import './Header.scss'
+import {NavLink} from "react-router-dom";
 
-function Header() {
+function Header(props) {
     return (
         <header className='header'>
             <div className='header__logo'>
@@ -18,7 +19,9 @@ function Header() {
                 <h2>My network</h2>
             </div>
             <div className='header__logout'>
-                <a href="#l">Logout</a>
+                { props.isAuth ? props.login
+                   : <NavLink to={'/login'}>Login</NavLink>
+                }
             </div>
 
         </header>
