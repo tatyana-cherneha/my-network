@@ -12,7 +12,8 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2;
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId, {
+            withCredentials: true})
             .then(response => {
                 if (response.data.resultCode === 0) {
                     let {userId, login, email } = response.data.data;
