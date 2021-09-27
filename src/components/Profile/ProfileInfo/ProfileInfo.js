@@ -1,11 +1,13 @@
 import './ProfileInfo.scss'
 import Avatar from "../../../assets/img/avatar.jpeg";
 import Preloader from "../../common/Preloader/Preloader";
+import React from "react";
 
 function ProfileInfo(props) {
     if (!props.profile) {
         return <Preloader />
     }
+
     return (
         <div className='profile__data'>
             <div className='profile__data-avatar'>
