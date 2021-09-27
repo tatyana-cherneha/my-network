@@ -33,19 +33,27 @@ let Users = (props) => {
                     {
                         u.followed
                             ? <button onClick={() => {
-                                axios.post(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {}, {
-                                    withCredentials: true})
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "9a5014b7-2caf-4bf3-8ce3-061b9f078edf"
+                                    },
+                                })
                                     .then(response => {
-                                        if (response.data.resultCode === 0){
+                                        if (response.data.resultCode == 0){
                                             props.unfollow(u.id)
                                         }
                                     })
                             }} className='user__info-btn unfollow'>Unfollow</button>
                             : <button onClick={() => {
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`, {
-                                    withCredentials: true})
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "9a5014b7-2caf-4bf3-8ce3-061b9f078edf"
+                                    },
+                                })
                                     .then(response => {
-                                        if (response.data.resultCode === 0){
+                                        if (response.data.resultCode == 0){
                                         props.follow(u.id)
                                     }
                                 });
