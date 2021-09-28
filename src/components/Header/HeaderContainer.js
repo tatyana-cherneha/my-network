@@ -4,10 +4,10 @@ import React from "react";
 import {connect} from "react-redux";
 import {getAuthUserData} from "../../redux/authReducer";
 
+
 class HeaderContainer extends React.Component{
 
     componentDidMount() {
-        //debugger
         this.props.getAuthUserData()
     }
 
@@ -17,6 +17,7 @@ class HeaderContainer extends React.Component{
         )
     }
 }
+
 
 let mapStateToProps = (state) =>({
     isAuth: state.auth.isAuth,
