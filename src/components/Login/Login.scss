@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  form {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__control {
+    width: 300px;
+    margin-bottom: 15px;
+    input[type=text],
+    input[type=password]{
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 2px;
+      border: 1px solid #ebebeb;
+      box-sizing: border-box;
+    }
+  }
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    span {
+      padding-left: 8px;
+      color: #696969;
+      font-size: 14px;
+    }
+  }
+  button {
+    display: block;
+    border: none;
+    background-color: darkcyan;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 10px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+h1 {
+  margin-bottom: 30px;
+}
