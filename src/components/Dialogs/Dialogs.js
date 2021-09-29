@@ -3,6 +3,7 @@ import './Dialogs.scss'
 import MessagesOutput from "./MessagesOutput/MessagesOutput"
 import MessagesInput from "./MessagesInput/MessagesInput"
 import DialogUser from "./DialogUser/DialogUser";
+import {Field, reduxForm} from "redux-form";
 
 
 function Dialogs (props) {
@@ -11,15 +12,10 @@ function Dialogs (props) {
     let dialogsElement = state.dialogsUsers.map( d => <DialogUser id={d.id} key={d.id} name={d.name} />)
     let messageInputEl = state.messageInput.map( msgI => <MessagesInput id={msgI.id} key={msgI.id} messageI={msgI.msgInput} />)
     let messageOutputEl = state.messageOutput.map( msgO => <MessagesOutput id={msgO.id} key={msgO.id} messageO={msgO.msgOutput} />)
-    let newMessageText = state.newMsgText;
+    //let newMsgText = state.newMsgText;
 
-    let onSendMsgClick = () => {
-        props.sendMsgClick();
-    }
-
-    let onNewMsgChange = (e) => {
-        let newMsg = e.target.value;
-        props.updateNewMsgText(newMsg)
+    let addNewMessage = (values) => {
+        props.sendMsgClick(values.newMsgText)
     }
 
     return (
@@ -37,14 +33,26 @@ function Dialogs (props) {
                     {messageOutputEl}
                 </div>
 
-                <div className='dialogs__add'>
-                    <textarea placeholder="Write messages there..." onChange={ onNewMsgChange } value={ newMessageText }></textarea>
-                    <button onClick={ onSendMsgClick }>Send</button>
-                </div>
+                <ReduxAddMessageForm onSubmit={addNewMessage} />
             </div>
 
         </div>
     )
 }
+
+const AddMessageForm = (props) => {
+
+    return (
+        <div className='dialogs__add'>
+            <form onSubmit={props.handleSubmit}>
+                <Field component="textarea" name="newMsgText"  placeholder="Write messages there..." />
+                <button>Send</button>
+            </form>
+
+        </div>
+    )
+}
+
+let ReduxAddMessageForm = reduxForm({ form: 'dialogAddMessageForm' })(AddMessageForm)
 
 export default Dialogs
