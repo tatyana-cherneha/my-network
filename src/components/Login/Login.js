@@ -19,6 +19,10 @@ const LoginForm = (props) => {
                 <div className='form__control'>
                     <Field placeholder='Input password' name="password" type="password" component="input" />
                 </div>
+                {
+                    props.error  && <div className='error'><span>{props.error}</span></div>
+                }
+
                 <div className='d-flex'>
                     <div className='form__checkbox'>
                         <Field type="checkbox" component="input" name="rememberMe" />
