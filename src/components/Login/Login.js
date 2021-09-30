@@ -1,7 +1,10 @@
 import './Login.scss'
 import { reduxForm, Field }from "redux-form";
 import {maxLengthCreator, requiredField} from "../../utils/validators/validators";
-import {Input} from "../common/FormControls/FormControls";
+import {connect} from "react-redux";
+import {login} from "../../redux/authReducer";
+import {Redirect} from "react-router-dom";
+// import {Input} from "../common/FormControls/FormControls";
 
 const maxLength30 = maxLengthCreator(30);
 
@@ -10,11 +13,11 @@ const LoginForm = (props) => {
         <div className='form'>
             <form onSubmit={props.handleSubmit}>
                 <div className='form__control'>
-                    <Field placeholder='Input login' name="login" type="text" component={Input}
+                    <Field placeholder='Input email' name="email" type="text" component="input"
                            validate={[requiredField, maxLength30]} />
                 </div>
                 <div className='form__control'>
-                    <Field placeholder='Input password' name="password" type="password" component={Input} />
+                    <Field placeholder='Input password' name="password" type="password" component="input" />
                 </div>
                 <div className='d-flex'>
                     <div className='form__checkbox'>
@@ -32,17 +35,27 @@ const LoginForm = (props) => {
 
 let ReduxLoginForm = reduxForm({ form: 'login' })(LoginForm)
 
-const Login = () => {
+const Login = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData)
+        props.login(formData.email, formData.password, formData.rememberMe);
+        //console.log(formData)
     }
+
+    if (props.isAuth) {
+        return <Redirect to={"/profile"} />
+    }
+
     return (
         <div>
             <h1>Login</h1>
-
             <ReduxLoginForm onSubmit={onSubmit} />
 
         </div>
     )
 }
-export default Login
+
+const mapStateToProps = (state) => ({
+    isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps, {login})(Login)
