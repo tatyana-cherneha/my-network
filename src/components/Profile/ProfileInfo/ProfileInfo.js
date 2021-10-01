@@ -2,7 +2,7 @@ import './ProfileInfo.scss'
 import Avatar from "../../../assets/img/avatar.jpeg";
 import Preloader from "../../common/Preloader/Preloader";
 import React from "react";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
     if (!props.profile) {
@@ -15,7 +15,7 @@ function ProfileInfo(props) {
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : Avatar} alt={'avatar'}/>
             </div>
 
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
 
             <div className='profile__data-descr'>
                 <h3>{props.profile.fullName}</h3>
