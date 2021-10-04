@@ -3,11 +3,11 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import ProfileImg from "./ProfileImg/ProfileImg"
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-function Profile(props) {
+function Profile({profile, status, updateStatus}) {
     return (
         <div className='profile'>
             <ProfileImg />
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
+            <ProfileInfo profile={profile} status={status} updateStatus={updateStatus} />
             <MyPostsContainer />
         </div>
     )

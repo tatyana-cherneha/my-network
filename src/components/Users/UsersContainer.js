@@ -2,9 +2,8 @@ import {connect} from "react-redux";
 import {
     follow,
     setCurrentPage,
-    setUsers,
     unfollow,
-    toggleFollowingProgress
+    toggleFollowingProgress, requestUsers
 } from "../../redux/usersReducer";
 import React from "react";
 import Users from "./Users";
@@ -23,12 +22,14 @@ import {
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize)
     }
 
 
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        const {pageSize} = this.props
+        this.props.getUsers(pageNumber, pageSize)
     }
 
     render() {
@@ -61,5 +62,5 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, setUsers, toggleFollowingProgress, getUsers})
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers: requestUsers})
 )(UsersContainer);
