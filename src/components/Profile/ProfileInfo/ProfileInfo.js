@@ -4,15 +4,22 @@ import Preloader from "../../common/Preloader/Preloader";
 import React from "react";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-function ProfileInfo({status, profile, updateStatus}) {
+function ProfileInfo({status, profile, updateStatus, isOwner, savePhoto}) {
     if (!profile) {
         return <Preloader />
+    }
+
+    const onMainPhotoSelected = (e) => {
+       if ( e.target.files.length) {
+           savePhoto(e.target.files[0])
+       }
     }
 
     return (
         <div className='profile__data'>
             <div className='profile__data-avatar'>
                 <img src={profile.photos.large != null ? profile.photos.large : Avatar} alt={'avatar'}/>
+                {isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
             </div>
 
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />

@@ -34,7 +34,7 @@ let User = ({user,followingInProgress, unfollow, follow}) => {
                         <p>Kyev</p>
                     </div>
                 </div>
-            </div> )
+            </div>
         </div>
     )
 }

@@ -9,7 +9,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 //import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import React, { Suspense } from "react";
+import React from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/appReducer";
