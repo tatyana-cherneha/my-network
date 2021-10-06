@@ -14,6 +14,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/appReducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import {withSuspense} from "./hoc/withSuspense";
 
 
 
@@ -35,20 +36,8 @@ class App extends React.Component {
                 <Navbar store={this.props.store} />
 
                 <div className='content'>
-                    <Route path='/profile/:userId?' render={ () => {
-                        return(
-                            <Suspense fallback={<Preloader />}>
-                                <ProfileContainer store={this.props.store} />
-                            </Suspense>
-                        )
-                    }} />
-                    <Route path='/messages' render={ () => {
-                        return(
-                            <Suspense fallback={<Preloader />}>
-                                <DialogsContainer store={this.props.store} />
-                            </Suspense>
-                        )
-                    }} />
+                    <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)} />
+                    <Route path='/messages' render={withSuspense(DialogsContainer)} />
                     <Route path='/users' render={() => <UsersContainer store={this.props.store} />} />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />
