@@ -1,0 +1,10 @@
+.form-control.error input,
+.form-control.error textarea {
+  border: 1px solid #b12e2e;
+}
+
+.form-control.error p {
+  color: #b12e2e;
+  text-align: left;
+  padding-top: 8px;
+}

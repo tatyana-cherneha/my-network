@@ -1,10 +1,14 @@
 import './ProfileInfo.scss'
 import Avatar from "../../../assets/img/avatar.jpeg";
 import Preloader from "../../common/Preloader/Preloader";
-import React from "react";
+import React, {useState} from "react";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
+import ProfileDataForm from "./ProfileDataForm/ProfileDataForm";
 
-function ProfileInfo({status, profile, updateStatus, isOwner, savePhoto}) {
+const ProfileInfo = ({status, profile, updateStatus, isOwner, savePhoto}) => {
+
+    let [ editMode, setEditMode ] = useState(false);
+
     if (!profile) {
         return <Preloader />
     }
@@ -24,25 +28,41 @@ function ProfileInfo({status, profile, updateStatus, isOwner, savePhoto}) {
 
             <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
 
-            <div className='profile__data-descr'>
-                <h3>{profile.fullName}</h3>
-                <p>{profile.aboutMe}</p>
-            </div>
+            { editMode
+                ? <ProfileDataForm profile={profile} />
+                : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => {setEditMode(true)}} /> }
 
             <div className='profile__data-contacts'>
-                <h3>Contacts:</h3>
-                <p>{profile.contacts.facebook}</p>
-                <p>{profile.contacts.website}</p>
-                <p>{profile.contacts.vk}</p>
-                <p>{profile.contacts.twitter}</p>
-                <p>{profile.contacts.instagram}</p>
-                <p>{profile.contacts.youtube}</p>
-                <p>{profile.contacts.github}</p>
-                <p>{profile.contacts.mainlink}</p>
+                <h3>Contacts:
+                    {Object.keys(profile.contacts).map(key => {
+                       return <Contact contactTitle={key} contactValue={profile.contacts[key]} />
+                    })}
+                </h3>
             </div>
 
         </div>
     )
+}
+
+const ProfileData = ({profile, isOwner, goToEditMode}) => {
+    return (
+        <div>
+            { isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+            <div className='profile__data-descr'>
+                <h3>{profile.fullName}</h3>
+                <p>{profile.aboutMe}</p>
+            </div>
+            <div className='profile__data-jobs'>
+                <p><b>Loking for a job: </b> {profile.lookingForAJob ? "Yes" : "No"}</p>
+                <p>{profile.lookingForAJobDescription}</p>
+            </div>
+        </div>
+    )
+}
+
+
+const Contact = ({contactTitle, contactValue}) => {
+    return <p><b>{contactTitle}: </b> {contactValue}</p>
 }
 
 export default ProfileInfo
